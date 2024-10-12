@@ -19,9 +19,12 @@ INSERT INTO graduates(Name, Age, Gender, Points) SELECT Name, Age, Gender, Point
 UPDATE graduates SET Graduation='08-09-2018' WHERE Name='Layal';
 DELETE FROM students WHERE Name='Layal';
 
-SELECT employees.name, employees.Company, companies.date FROM employees Inner join companies ON employees.Company=companies.name;
-SELECT employees.name FROM employees Inner join companies ON employees.Company=companies.name and companies.Date < 2000;
-SELECT companies.name FROM companies Inner join employees ON employees.Company=companies.name and employees.Role='Graphic Designer';
+SELECT employees.name AS EmployeeName, companies.Name AS CompanyName , companies.date AS CompanyDate FROM employees Inner join 
+companies ON employees.Company=companies.Name;
+SELECT employees.name AS EmployedName FROM employees Inner join companies ON employees.Company=companies.name WHERE 
+companies.Date < 2000;
+SELECT DISTINCT companies.name FROM companies Inner join employees ON employees.Company=companies.name WHERE 
+employees.Role='Graphic Designer';
 
 select name from students where points=(SELECT MAX(points) from students);
 select AVG(points) from students;
