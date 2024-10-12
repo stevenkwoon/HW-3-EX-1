@@ -27,7 +27,7 @@ SELECT DISTINCT companies.name FROM companies Inner join employees ON employees.
 employees.Role='Graphic Designer';
 
 select name from students where points=(SELECT MAX(points) from students);
-select AVG(points) from students;
+select AVG(points) AS Average_Points from students;
 select COUNT(Name) from students where points=500;
-select Name from students WHERE Name GLOB '*s*';
-select name from students ORDER BY points DESC;
+select name from students WHERE Name LIKE '%s%';
+select * from students ORDER BY points DESC;
